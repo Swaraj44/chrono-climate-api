@@ -16,16 +16,23 @@ public class WeatherService {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
+    @SuppressWarnings("unchecked")
     public double[] fetchTemperatures(String startDate, String endDate) {
+
+
 
         String url = String.format(BASE_URL, startDate, endDate);
 
-        Map response = restTemplate.getForObject(url, Map.class);
-        Map daily = (Map) response.get("daily");
+        Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+        Map<String, Object> daily = (Map<String, Object>) response.get("daily");
+
+
+
 
         System.out.println("====--->  Weather API Response: " + response);
 
 
+        
         List<Double> maxTemps = (List<Double>) daily.get("temperature_2m_max");
         List<Double> minTemps = (List<Double>) daily.get("temperature_2m_min");
 

@@ -3,8 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
 
+
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
    
 
@@ -16,7 +17,7 @@
     <description>Backend APIs Spring Boot Application</description>
 
 
-    <!-- Spring Boot 2.x for Java 11 -->
+    <!-- spring boot 2.x for Java 11 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -32,6 +33,13 @@
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- for test -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
     </dependency>
 
     <dependency>

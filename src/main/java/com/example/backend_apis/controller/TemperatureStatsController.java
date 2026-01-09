@@ -3,7 +3,8 @@ package com.example.backend_apis.controller;
 import com.example.backend_apis.dto.TemperatureStatsRequest;
 import com.example.backend_apis.dto.TemperatureStatsResponse;
 import com.example.backend_apis.service.TemperatureStatsService;
-import com.example.backend_apis.service.Test;
+import com.example.backend_apis.util.InputValidator;
+
 import org.springframework.web.bind.annotation.*;
 
 
@@ -13,22 +14,19 @@ import org.springframework.web.bind.annotation.*;
 public class TemperatureStatsController {
 
     private final TemperatureStatsService service;
-    private final Test test;
+  
 
-    public TemperatureStatsController(TemperatureStatsService service, Test test) {
+    public TemperatureStatsController(TemperatureStatsService service) {
         this.service = service;
-        this.test=test;
     }
 
     @PostMapping("/temperature-stats-for-dhaka")
     public TemperatureStatsResponse getStats(@RequestBody TemperatureStatsRequest request) {
+        InputValidator.validateDate(request.getStartDate());
+        InputValidator.validateDate(request.getEndDate());
 
-        Object[] result = service.calculate(
-                request.getStartDate(),
-                request.getEndDate()
-        );
+        Object[] result = service.calculate(request.getStartDate(),request.getEndDate());
 
-        //Object[] result2 = test.testt();
 
         //System.out.println("--->  Request: " + request.getStartDate() + " to " + request.getEndDate()); 
 
@@ -41,4 +39,7 @@ public class TemperatureStatsController {
                 (String) result[5]
         );
     }
+
+  
+
 }
