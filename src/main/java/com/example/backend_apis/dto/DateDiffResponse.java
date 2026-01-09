@@ -1,5 +1,6 @@
 package com.example.backend_apis.dto;
 
+
 public class DateDiffResponse {
 
     private long numberOfDays;
@@ -8,6 +9,7 @@ public class DateDiffResponse {
         this.numberOfDays = numberOfDays;
     }
 
+    
     public long getNumberOfDays() {
         return numberOfDays;
     }
