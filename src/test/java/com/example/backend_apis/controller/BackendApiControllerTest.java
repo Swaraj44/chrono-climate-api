@@ -31,7 +31,7 @@ class BackendApiControllerTest {
         String json = "{ \"number\": \"36.40\" }";
 
 
-        mockMvc.perform(post("/number-to-words").contentType(MediaType.APPLICATION_JSON).content(json))
+        mockMvc.perform(post("/api/number-to-words").contentType(MediaType.APPLICATION_JSON).content(json))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.result").value("thirty six point four zero"));
     }
 
@@ -45,7 +45,7 @@ class BackendApiControllerTest {
         String json = "{ \"number\": \"1000.00\" }";
 
 
-        mockMvc.perform(post("/number-to-words").contentType(MediaType.APPLICATION_JSON).content(json))
+        mockMvc.perform(post("/api/number-to-words").contentType(MediaType.APPLICATION_JSON).content(json))
                 .andExpect(status().isBadRequest()).andExpect(jsonPath("$.message")
                 .value("Invalid number. Must be < 1000 with max 2 decimals"));
     }
@@ -60,7 +60,7 @@ class BackendApiControllerTest {
         
                                 String json = "{ \"startDate\": \"01-01-2024\", \"endDate\": \"2024-01-10\" }";
 
-        mockMvc.perform(post("/number-of-days").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/number-of-days").contentType(MediaType.APPLICATION_JSON)
                 .content(json)).andExpect(status().isBadRequest()).andExpect(jsonPath("$.error").value("Bad Request"));
     }
 }
