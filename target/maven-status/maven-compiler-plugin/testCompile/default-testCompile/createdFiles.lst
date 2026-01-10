@@ -1,0 +1,4 @@
+com\example\chrono_climate_api\service\DateDifferenceServiceTest.class
+com\example\chrono_climate_api\util\InputValidatorTest.class
+com\example\chrono_climate_api\service\NumberToWordsServiceTest.class
+com\example\chrono_climate_api\controller\ApiControllerTests.class

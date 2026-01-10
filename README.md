@@ -1,28 +1,25 @@
-# chrono-climate-api -- (Spring Boot Project)
+# Chrono Climate Api (Spring Boot Project)
 
 ## Overview
 
-This repository contains a **Spring Boot--based backend API
-application** developed as a structured backend engineering task.\
+This repository contains a **Spring Boot--based backend API application** developed as a structured backend engineering task.
 The application exposes multiple RESTful endpoints that perform:
 
-1.  Date difference calculation without using date libraries\
-2.  Number-to-English-words conversion\
+1.  Date difference calculation without using date libraries
+2.  Number-to-English-words conversion
 3.  Weather-based temperature statistics for Dhaka
 
-The project emphasizes **clean architecture**, **input validation**,
-**global exception handling**, **unit testing**, and **Docker-based
-deployment**.
+The project emphasizes **clean architecture**, **input validation**,**global exception handling**, **unit testing**, and **Docker-based deployment**.
 
 ------------------------------------------------------------------------
 
 ## Technology Stack
 
--   **Language:** Java 11\
--   **Framework:** Spring Boot 2.7.18\
--   **Build Tool:** Maven\
--   **Testing:** JUnit 5, Spring MockMvc\
--   **External API:** Open-Meteo (Weather data)\
+-   **Language:** Java 11
+-   **Framework:** Spring Boot 2.7.18
+-   **Build Tool:** Maven 3.9.6
+-   **Testing:** JUnit 5, Spring MockMvc
+-   **External API:** Open-Meteo (Weather data)
 -   **Containerization:** Docker
 
 ------------------------------------------------------------------------
@@ -33,7 +30,7 @@ deployment**.
     ├── src
     │   ├── main
     │   │   ├── java
-    │   │   │   └── com.example.backend_apis
+    │   │   │   └── com.example.chrono_climate_api
     │   │   │       ├── controller
     │   │   │       ├── service
     │   │   │       ├── dto
@@ -44,7 +41,7 @@ deployment**.
     │   │   └── resources
     │   └── test
     │       └── java
-    │           └── com.example.backend_apis
+    │           └── com.example.chrono_climate_api
     │               ├── controller
     │               ├── service
     │               └── util
@@ -58,15 +55,15 @@ deployment**.
 
 ### 1. Number of Days Between Two Dates
 
-**Endpoint**\
+**Endpoint**
 POST `/api/number-of-days`
 
 **Input**
 
 ``` json
 {
-  "startDate": "2024-01-01",
-  "endDate": "2024-01-10"
+  "startDate": "2025-01-01",
+  "endDate": "2025-01-10"
 }
 ```
 
@@ -78,21 +75,20 @@ POST `/api/number-of-days`
 }
 ```
 
-**Notes** - Date format: `YYYY-MM-DD` - Date calculation implemented
-without date libraries - Regex-based input validation
+**Notes** - Date format: `YYYY-MM-DD` - Date calculation implemented without date libraries - Regex-based input validation
 
 ------------------------------------------------------------------------
 
 ### 2. Number to Words
 
-**Endpoint**\
+**Endpoint**
 POST `/api/number-to-words`
 
 **Input**
 
 ``` json
 {
-  "number": "36.40"
+  "number": "46.40"
 }
 ```
 
@@ -100,7 +96,7 @@ POST `/api/number-to-words`
 
 ``` json
 {
-  "words": "thirty six point four zero"
+  "words": "forty six point four zero"
 }
 ```
 
@@ -111,15 +107,15 @@ Lowercase output - No hyphens or conjunctions
 
 ### 3. Temperature Statistics for Dhaka
 
-**Endpoint**\
+**Endpoint**
 POST `/api/temperature-stats-for-dhaka`
 
 **Input**
 
 ``` json
 {
-  "startDate": "2024-01-01",
-  "endDate": "2024-01-05"
+  "startDate": "2025-01-01",
+  "endDate": "2025-01-06"
 }
 ```
 
@@ -127,18 +123,18 @@ POST `/api/temperature-stats-for-dhaka`
 
 ``` json
 {
-  "min": -5.4,
-  "max": 1.3,
-  "average": -1.44,
-  "minText": "minus five point four",
-  "maxText": "positive one point three",
-  "averageText": "minus one point four four"
+  "min": -1.4,
+  "max": 3.3,
+  "average": 1.44,
+  "minText": "minus one point four",
+  "maxText": "positive three point three",
+  "averageText": "positive one point four four"
 }
 ```
 
 **Notes** - Weather data fetched from Open-Meteo - Dhaka coordinates:
 `23.8103, 90.4125` - Text conversion reuses Number-to-Words logic -
-Proper floating-point rounding applied
+Proper floating point rounding applied
 
 ------------------------------------------------------------------------
 
@@ -160,8 +156,7 @@ Proper floating-point rounding applied
 
 ## Testing
 
-**Coverage** - Controller tests (MockMvc) - Service tests -
-Utility/Validator tests
+**Coverage** - Controller tests (MockMvc) - Service tests - Utility/Validator tests
 
 **Run Tests**
 
@@ -180,19 +175,31 @@ mvn spring-boot:run
 Application runs at `http://localhost:8080`
 
 ------------------------------------------------------------------------
+## DockerHub Support
 
+**Image Pull**
+``` bash
+docker pull swaraj66/chrono-climate-api
+```
+
+**Run Container**
+``` bash
+docker run -p 8080:8080 swaraj66/chrono-climate-api
+```
+
+------------------------------------------------------------------------
 ## Docker Support
 
 **Build Image**
 
 ``` bash
-docker build -t backend_apis .
+docker build -t chrono-climate-api .
 ```
 
 **Run Container**
 
 ``` bash
-docker run -p 8080:8080 backend_apis
+docker run -p 8080:8080 chrono-climate-api
 ```
 
 ------------------------------------------------------------------------
@@ -203,12 +210,3 @@ docker run -p 8080:8080 backend_apis
 -   Clear separation of concerns
 -   Reusable utilities
 -   CI-ready, build-breaking tests
-
-------------------------------------------------------------------------
-
-## Possible Enhancements
-
--   Swagger / OpenAPI documentation
--   Integration testing with Testcontainers
--   Weather API response caching
--   CI/CD pipeline setup
