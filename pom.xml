@@ -12,8 +12,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <artifactId>backend_apis</artifactId>
-    <name>backend_apis</name>
+    <artifactId>chrono-climate-api</artifactId>
+    <name>chrono-climate-api</name>
     <description>Backend APIs Spring Boot Application</description>
 
 

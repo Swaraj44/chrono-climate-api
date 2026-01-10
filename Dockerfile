@@ -20,7 +20,8 @@ WORKDIR /app
 
 
                                  # jar from build stage
-COPY --from=build /app/target/backend_apis-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
+
 
 EXPOSE 8080
 
