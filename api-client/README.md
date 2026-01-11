@@ -121,6 +121,7 @@ docker run -p 5173:80 api-client
 ```
 ---
 
+
 ## Notes
 
 - All validation is handled by the backend
