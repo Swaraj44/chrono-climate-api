@@ -8,7 +8,6 @@ import com.example.chrono_climate_api.util.InputValidator;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @RestController
 @RequestMapping("/api")
 public class TemperatureStatsController {
