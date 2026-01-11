@@ -1,6 +1,6 @@
 # API Client Dashboard (Vite + React)
 
-A **React frontend** built using **Vite + React** that consumes three REST APIs provided by a Spring Boot backend.  
+This repository contains **React frontend** built using **Vite + React** that consumes three REST APIs provided by a Spring Boot backend.  
 The application focuses on clarity, correctness, and a professional UI while keeping the codebase simple and maintainable.
 
 ---
@@ -117,7 +117,7 @@ docker build -t api-client .
 **Run Container**
 
 ``` bash
-docker run -p 5173:80 swaraj66/api-client
+docker run -p 5173:80 api-client
 ```
 ---
 

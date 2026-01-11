@@ -31,6 +31,7 @@ The project emphasizes **clean architecture**, **input validation**,**global exc
     │   ├── main
     │   │   ├── java
     │   │   │   └── com.example.chrono_climate_api
+    |   |   |       ├── config
     │   │   │       ├── controller
     │   │   │       ├── service
     │   │   │       ├── dto
