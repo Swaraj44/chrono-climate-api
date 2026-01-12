@@ -40,7 +40,7 @@ http://localhost:8080
 
 ---
 
-## Project Structure
+## API-Client Internal Structure
 
 ```
 src/
