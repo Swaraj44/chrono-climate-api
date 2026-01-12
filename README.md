@@ -13,13 +13,13 @@ The project focuses on **clean architecture**, **input validation**, **global ex
 
 ```
 chrono-climate-app/
-├── backend/             # Spring Boot backend (Chrono Climate API)
-│   └── README.md        # Detailed backend instructions
+├── server/                # Spring Boot backend (Chrono Climate API)
+│   └── README.md          # Detailed backend instructions
 │
-├── frontend/            # React + Vite frontend (API Client Dashboard)
-│   └── README.md        # Detailed frontend instructions
+├── api-client/            # React + Vite frontend (API Client Dashboard)
+│   └── README.md          # Detailed frontend instructions
 │
-├── README.md            # General overview (this file)
+├── README.md              # General overview (this file)
 ```
 
 > Each folder contains its own detailed README with instructions on installation, running, testing, and Docker deployment.
@@ -61,16 +61,16 @@ chrono-climate-app/
 
 ### Running Locally
 
-1. **Backend**
+1. **Backend (server)**
     ```bash
-    cd backend
+    cd server
     mvn spring-boot:run
     ```
     Runs on `http://localhost:8080`.
 
-2. **Frontend**
+2. **Frontend (api-client)**
     ```bash
-    cd frontend
+    cd api-client
     npm install
     npm run dev
     ```
@@ -82,14 +82,14 @@ chrono-climate-app/
 
 1. **Backend**
     ```bash
-    cd backend
+    cd server
     docker build -t chrono-climate-api .
     docker run -p 8080:8080 chrono-climate-api
     ```
 
 2. **Frontend**
     ```bash
-    cd frontend
+    cd api-client
     docker build -t api-client .
     docker run -p 5173:80 api-client
     ```
